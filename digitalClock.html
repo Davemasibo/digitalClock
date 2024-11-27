@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Digital Clock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="clock">00:00:00</div>
+        <div id="timezone">Time Zone: UTC</div>
+        <div class="controls">
+            <select id="timezone-select">
+                <option value="UTC">UTC</option>
+                <option value="America/New_York">New York (EST)</option>
+                <option value="Europe/London">London (GMT)</option>
+                <option value="Asia/Tokyo">Tokyo (JST)</option>
+                <option value="Africa/Nairobi">Nairobi (EAT)</option>
+            </select>
+            <button id="toggle-format">Switch to 12-Hour</button>
+            <button id="toggle-theme">Switch to Dark Theme</button>
+        </div>
+        <div class="alarm-section">
+          <h3>Set Alarm</h3>
+          <input type="time" id="alarm-time">
+          <button id="set-alarm">Set Alarm</button>
+          <p id="alarm-message"></p>
+      </div>
+      <div class="reminder-section">
+          <h3>Set Reminder</h3>
+          <input type="time" id="reminder-time">
+          <input type="text" id="reminder-message" placeholder="Enter reminder message">
+          <button id="set-reminder">Set Reminder</button>
+          <ul id="reminder-list"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

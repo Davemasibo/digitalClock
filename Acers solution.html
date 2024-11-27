@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Acers.css">
+    <title>ACERS SOLUTIONS - SHOPPING CART</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        .product { border: 1px solid #ddd; padding: 10px; margin: 10px; border-radius: 5px; }
+        .product h2 { margin: 0; }
+        .product p { margin: 5px 0; }
+        button { background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1 style="text-decoration: double underline;"><b>ACERS SOLUTIONS - SHOPPING CART</b></h1> 
+    <div id="available-products" > 
+        <h2>Available Products</h2>
+        <div class="product1">
+            <h3>Laptop</h3>
+            <div class="laptop-images">
+                <div style="text-align: center;">
+                    <img src="Acerslaptop1.jpg" alt="HP Laptop">
+                    <P>12th Generation Intel® Core™ i5 processor.
+                        <br>
+                        Windows 11 Home.
+                        <br>
+                        16 GB DDR4-3200 MHz RAM.
+                        <br>
+                        512 GB SSD Hard drive.</P>
+                    <p><b>HP Laptop - $1990</b></p>
+                    <button onclick="addToCart('HP Laptop', 1990)">Add to Cart</button>
+                </div>
+                <div style="text-align: center;">
+                    <img src="AcersMacbook.jpg" alt="MacBook">
+                    <p>
+                        SoC Apple M1 Chip 8-core CPU and GPU & 16-core Neural
+                        <br>
+                        16GB RAM unified memory
+                        <br>
+                        512GB SSD Storage
+                        <br>
+                        13.3 inch Retina display with true tone
+                    </p>
+                    <p><B>MacBook - $2100</B></p>
+                    <button onclick="addToCart('MacBook', 2100)">Add to Cart</button>
+                </div>
+                <div style="text-align: center;">
+                    <img src="AcersLenovo.jpg" alt="Lenovo Laptop">
+                    <p>
+                        2.2 GHz Intel Core i9-13900HX 24-Core (13th Gen)
+                        <br>
+                        16GB DDR5 RAM | 1TB NVMe SSD.
+                        <br>
+                        16″ 2560 x 1600 240 Hz IPS Display.
+                        <br>
+                        NVIDIA GeForce RTX 4060 (8GB GDDR6)
+                    </p>
+                    <p><b>Lenovo Laptop - $2000</b></p>
+                    <button onclick="addToCart('Lenovo Laptop', 2000)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product2">
+            <h3>Keyboard</h3>
+            <div class="Keyboard_images">
+                 <div style="text-align: center;">
+                    <img src="AcersKeyboard.jpg" alt="Fast Keyboard">
+                    <p>
+                        Bluetooth and 2.4GHz wireless.
+                        <br>
+                        Controls up to four devices.
+                        <br>
+                        Bright backlight. 
+                    </p>
+                    <p><b>Fast Keyboard - $420</b></p>
+                    <button onclick="addToCart('Fast Keyboard', 420)">Add to Cart</button>
+                </div>
+                <div style="text-align: center;">
+                    <img src="AcersKeyboard2.jpg" alt="Normal Keyboard">
+                    <p>
+                        As quiet as a mechanical keyboard gets.
+                        <br>
+                        Extremely comfortable for fast typing.
+                        <br>
+                        Cushioned wrist rest.
+                    </p>
+                    <p><b>Normal Keyboard - $370</b></p>
+                    <button onclick="addToCart('Normal Keyboard', 370)">Add to Cart</button>
+                </div>
+                <div style="text-align: center;">
+                    <img src="AcersKeybaord3.jpg" alt="Lighting Keyboard">
+                    <p>
+                        Durable springs.
+                        <br>
+                        Internal Led
+                        <br>
+                        Quiet.
+                    </p>
+                    <p><b>Lighting Keyboard - $400</b></p>
+                    <button onclick="addToCart('Lighting Keyboard', 400)"> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="product4">
+            <h3>Phone</h3>
+            <div class="Phone_images">
+                <div style="text-align: center;">
+                <img src="AcersPhones.jpg" alt="Samsung">
+                <p><b>Samsung - $1000</b></p>
+                <button onclick="addToCart('Samsung', 1000)">Add to Cart</button>
+                </div>
+                <div style="text-align: center;">
+                <img src="AcersPhoneflip.jpg" alt="Flip Phone">
+                <p><b>Flip Phone - $1300</b></p>
+                <button onclick="addToCart('Flip Phone',1300)">Add to Cart</button>
+                </div>
+            </div>
+            
+        </div>
+        <div class="product3">
+            <h3>Laptop Charger</h3>
+            <img src="AcersLaptopcharger.jpg" alt="Laptop Charger">
+            <p>
+                USB Type-C cable
+                <br>
+                45 W
+                <br>
+                6 A
+            </p>
+            <p><b>Price: $760</b></p>
+            <button onclick="addToCart('Laptop Charger', 760)">Add to Cart</button>
+        </div>
+
+        <h2>Your Cart</h2>
+<table id="cart">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Cart items will be dynamically added here -->
+    </tbody>
+</table>
+<p id="total"><b>TOTAL: $0</b></p>
+
+<!-- Display Cart Cleared Message -->
+<p id="cart-message" style="color: green; font-weight: bold;"></p>
+
+<button id="clear-cart" onclick="clearCart()">Clear Cart</button>
+<p></p>
+<button id="checkout" onclick="checkout()">Check Out</button>
+<footer> 
+    <p> &copy;2024. Acers Solutions. All rights reserved. </p>
+</footer>
+<script>
+    const cart = [];
+    function addToCart(item, price) {
+        cart.push({ item, price, quantity: 1, subtotal: price });
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartTableBody = document.querySelector('#cart tbody');
+        const total = document.getElementById('total');
+        cartTableBody.innerHTML = '';
+        let totalPrice = 0;
+
+        cart.forEach(product => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${product.item}</td>
+                <td>$${product.price}</td>
+                <td>${product.quantity}</td>
+                <td>$${product.subtotal}</td>
+            `;
+            cartTableBody.appendChild(row);
+            totalPrice += product.subtotal;
+        });
+
+        total.textContent = `TOTAL: $${totalPrice}`;
+    }
+
+    function clearCart() {
+        cart.length = 0; // Clear the cart array
+        updateCart();    // Refresh the cart display
+        document.getElementById('cart-message').textContent = 'Cart is cleared!';
+    }
+
+    function checkout() {
+        if (cart.length === 0) {
+            alert("Your cart is empty. Please add items before checking out.");
+            return;
+        }
+        let summary = "Order Summary:\n";
+        cart.forEach(product => {
+            summary += `${product.item} - Quantity: ${product.quantity}, Subtotal: $${product.subtotal}\n`;
+        });
+        summary += `\nTotal Price: $${cart.reduce((total, product) => total + product.subtotal, 0)}`;
+        alert(summary);
+        
+        // Clear the cart after checkout
+        cart.length = 0;
+        updateCart();  // Refresh the cart display
+    }
+
+
+</script>
+    <script src="Acers.java"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

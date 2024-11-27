@@ -1,0 +1,93 @@
+/* No changes to the themes */
+:root {
+    --background-light: #f5f5f5;
+    --background-dark: #333;
+    --text-light: #333;
+    --text-dark: #f5f5f5;
+    --button-light: #007BFF;
+    --button-dark: #0056b3;
+}
+
+body.light {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+body.dark {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    text-align: center;
+}
+
+#clock {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#timezone {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.controls, .alarm-section, .reminder-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+select, input, button {
+    font-size: 1em;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+button {
+    background-color: var(--button-light);
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-dark);
+}
+
+body.dark button {
+    background-color: var(--button-dark);
+}
+
+body.dark button:hover {
+    background-color: var(--button-light);
+}
+
+#reminder-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#reminder-list li {
+    background-color: var(--button-light);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
