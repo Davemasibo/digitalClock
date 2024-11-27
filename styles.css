@@ -16,78 +16,198 @@ body.light {
 body.dark {
     background-color: var(--background-dark);
     color: var(--text-dark);
-}
-
+}/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    background-color: #f0f0f0;
+    color: #333;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.container {
-    text-align: center;
-}
-
-#clock {
-    font-size: 3em;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-#timezone {
-    margin-bottom: 20px;
-    font-size: 1.2em;
-}
-
-.controls, .alarm-section, .reminder-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-select, input, button {
-    font-size: 1em;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-}
-
-button {
-    background-color: var(--button-light);
-    color: #fff;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: var(--button-dark);
-}
-
-body.dark button {
-    background-color: var(--button-dark);
-}
-
-body.dark button:hover {
-    background-color: var(--button-light);
-}
-
-#reminder-list {
-    list-style: none;
+    height: 100vh;
+    margin: 0;
     padding: 0;
-    margin-top: 10px;
-}
-
-#reminder-list li {
-    background-color: var(--button-light);
+    box-sizing: border-box;
+  }
+  
+  .container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    width: 400px;
+    height: auto;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    background-color: #4CAF50;
     color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    width: auto;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button i {
+    margin-right: 8px;
+  }
+  
+  #clock {
+    font-size: 6vw; /* Responsive font size */
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  #timezone {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Dark Mode Styles */
+  body.dark-mode {
+    background-color: #333;
+    color: white;
+  }
+  
+  body.dark-mode .container {
+    background-color: #444;
+    color: white;
+  }
+  
+  body.dark-mode button {
+    background-color: #666;
+  }
+  
+  body.dark-mode button:hover {
+    background-color: #555;
+  }
+  
+  /* Alarm and Reminder Section */
+  .alarm-section, .reminder-section {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="time"], input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 300px;
+  }
+  
+  input[type="time"]:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  
+  /* Reminder list styling */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  li {
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+  
+  /* Button for theme toggle */
+  #toggle-theme {
+    margin-top: 20px;
+    background-color: #2196F3;
+    font-size: 1rem;
+  }
+  
+  #toggle-theme:hover {
+    background-color: #1976D2;
+  }
+  
+  #toggle-format {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+  
+  /* Container for controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .controls select, .controls button {
+    margin: 5px;
+    font-size: 1rem;
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: 5px;
-}
+    border: 1px solid #ccc;
+    width: 150px;
+  }
+  
+  .controls select {
+    width: 160px;
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media (max-width: 768px) {
+    #clock {
+      font-size: 10vw; /* Adjust font size on smaller screens */
+    }
+  
+    .container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  
+    input[type="time"], input[type="text"] {
+      font-size: 1.2rem;
+      width: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #clock {
+      font-size: 12vw; /* Further adjust font size for very small screens */
+    }
+  
+    input[type="time"], input[type="text"] {
+      width: 100%;
+    }
+  
+    .controls {
+      flex-direction: column;
+    }
+  
+    .controls select, .controls button {
+      width: 100%;
+    }
+  }
+  
